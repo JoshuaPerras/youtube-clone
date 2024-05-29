@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react'
 import moment from 'moment'
 
 ///////////////////
-var numOfComments = 5;
+var numOfComments = 10;
 
 
 //////////////////
@@ -80,7 +80,7 @@ const PlayVideo = ({videoId}) => {
                     <img src={item.snippet.topLevelComment.snippet.authorProfileImageUrl} alt="" />        
                     <div>
                         <h3>{item.snippet.topLevelComment.snippet.authorDisplayName} <span>{moment(item.snippet.topLevelComment.snippet.publishedAt).fromNow()}</span></h3>
-                        <p>{item.snippet.topLevelComment.snippet.textOriginal}</p>
+                        <p>{item.snippet.topLevelComment.snippet.textOriginal} </p>
                         <div className="comment-action">
                             <img src={like} alt="" />
                             <span>{item.snippet.topLevelComment.snippet.likeCount}</span>
