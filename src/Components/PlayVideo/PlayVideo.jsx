@@ -10,6 +10,7 @@ import user_profile from '../../assets/user_profile.jpg'
 import { API_KEY, value_converter } from '../../data'
 import { useEffect, useState } from 'react'
 import moment from 'moment'
+import { useParams } from 'react-router-dom'
 
 ///////////////////
 var numOfComments = 10;
@@ -17,7 +18,9 @@ var numOfComments = 10;
 
 //////////////////
 
-const PlayVideo = ({videoId}) => {
+const PlayVideo = () => {
+
+    const {videoId} = useParams();
 
     const [apiData, setApiData] = useState(null);
     const [channelData, setChannelData] = useState(null);
@@ -40,7 +43,7 @@ const PlayVideo = ({videoId}) => {
 
     useEffect(()=>{
         fetchVideoData();
-    },[])
+    },[videoId])
 
     useEffect(()=>{
         fetchOtherData();
@@ -83,7 +86,7 @@ const PlayVideo = ({videoId}) => {
                         <p>{item.snippet.topLevelComment.snippet.textOriginal} </p>
                         <div className="comment-action">
                             <img src={like} alt="" />
-                            <span>{item.snippet.topLevelComment.snippet.likeCount}</span>
+                            <span>{value_converter(item.snippet.topLevelComment.snippet.likeCount)}</span>
                             <img src={dislike} alt="" />
                         </div>
                     </div>
