@@ -14,7 +14,7 @@ const Recommended = ({categoryId}) => {
 
     useEffect(()=>{
         fetchData();
-    },[])
+    },[categoryId])
 
   return (
     
